@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "gerrit-python-3.8-app-review.fullname" . }}
+  labels:
+    {{- include "gerrit-python-3.8-app-review.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gerrit-python-3.8-app-review.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,1 @@
+1. Application gerrit-python-3.8-app-review has been successfully deployed!!
